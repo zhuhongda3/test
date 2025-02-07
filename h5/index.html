@@ -4,4 +4,10 @@
             var vConsole = new VConsole()
         }, false)
         vconsole_js.src = 'https://vncdn.mobi88.cn/public/vconsole.min.js'
-        document.getElementsByTagName('head')[0].appendChild(vconsole_js);</script></body></html>
+        document.getElementsByTagName('head')[0].appendChild(vconsole_js);
+
+        // 判断当前环境在微信APP中动态引入wxsdk
+        var isInsideWechat = new RegExp("micromessenger", "i").test(navigator.userAgent);
+        if (isInsideWechat) {
+            document.writeln('<script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"' + '>' + '<' + '/' + 'script>');
+        }</script></body></html>
